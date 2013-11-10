@@ -1,12 +1,15 @@
 {{set . "title" "Home"}}
+{{append . "moreStyles" "css/button.css"}}
 {{template "header.html" .}}
 
 <header class="hero-unit" style="background-color:#A9F16C">
   <div class="container">
     <div class="row">
       <div class="hero-text">
-        <h1>It works!</h1>
-        <p></p>
+        <h1>Amazon OAuth2 demo with Revel</h1>
+        <p>
+          Checkout <a href="http://robfig.github.io/revel/">Revel</a> and <a href="https://login.amazon.com/">Login with Amazon</a>
+        </p>
       </div>
     </div>
   </div>
@@ -17,6 +20,13 @@
     <div class="span6">
       {{template "flash.html" .}}
     </div>
+  </div>
+  <div class="row">
+    {{if .profile}}
+      <h1>Welcome, {{.profile.name}}</h1>
+    {{else}}
+    <a href="{{.authUrl}}" class="amazn-button"></a>
+    {{end}}
   </div>
 </div>
 

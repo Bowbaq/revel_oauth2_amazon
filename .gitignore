@@ -1,2 +1,3 @@
 app/tmp/main.go
 app/routes/routes.go
+revel_oauth2_amazon.log
