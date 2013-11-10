@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/robfig/revel"
-	"revel_oauth2_amazon/app/models"
 	"net/http"
 	"net/url"
+	"revel_oauth2_amazon/app/models"
 	"strconv"
 )
 
@@ -50,7 +50,7 @@ func (app App) Login(code string) revel.Result {
 	}
 
 	user := app.currentUser()
-  models.SetToken(user.Uid, token)
+	models.SetToken(user.Uid, token)
 
 	return app.Redirect(App.Index)
 }
@@ -74,5 +74,5 @@ func init() {
 }
 
 func (c App) currentUser() *models.User {
-  return c.RenderArgs["user"].(*models.User)
+	return c.RenderArgs["user"].(*models.User)
 }
